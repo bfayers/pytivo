@@ -1,0 +1,18 @@
+{
+    "IRCodes": {
+        "NavButtons": ["UP", "DOWN", "LEFT", "RIGHT", "SELECT", "TIVO", "LIVETV", "GUIDE", "INFO", "EXIT"],
+        "ControlButtons": ["THUMBSUP", "THUMBSDOWN", "CHANNELUP", "CHANNELDOWN", "MUTE", "VOLUMEDOWN", "VOLUMEUP", "TVINPUT", "CC_ON", "CC_OFF", "OPTIONS"],
+        "VideoModeButtons": ["VIDEO_MODE_FIXED_480i", "VIDEO_MODE_FIXED_480p", "VIDEO_MODE_FIXED_720p", "VIDEO_MODE_FIXED_1080i", "VIDEO_MODE_HYBRID", "VIDEO_MODE_HYBRID_720p", "VIDEO_MODE_HYBRID_1080i", "VIDEO_MODE_NATIVE"],
+        "AspectButtons": ["ASPECT_CORRECTION_FULL", "ASPECT_CORRECTION_PANEL", "ASPECT_CORRECTION_ZOOM", "ASPECT_CORRECTION_WIDE_ZOOM"],
+        "PlaybackButtons": ["PLAY", "PAUSE", "FORWARD", "REVERSE", "SLOW", "REPLAY", "ADVANCE", "RECORD"],
+        "NumButtons": ["NUM0", "NUM1", "NUM2", "NUM3", "NUM4", "NUM5", "NUM6", "NUM7", "NUM8", "NUM9", "ENTER", "CLEAR"],
+        "ShortcutButtons": ["ACTION_A", "ACTION_B", "ACTION_C", "ACTION_D"]
+    },
+    "KeyboardCodes": {
+        "SpecialCharacters": ["MINUS", "EQUALS", "LBRACKET", "RBRACKET", "BACKSLASH", "SEMICOLON", "QUOTE", "COMMA", "PERIOD", "SLASH", "BACKQUOTE", "SPACE"],
+        "NavButtons": ["KBDUP", "KBDDOWN", "KBDLEFT", "KBDRIGHT", "KBDENTER", "PAGEUP", "PAGEDOWN", "HOME", "END"],
+        "EditButtons": ["CAPS", "LSHIFT", "RSHIFT", "INSERT", "BACKSPACE", "DELETE"],
+        "ControlButtons": ["STOP", "VIDEO_ON_DEMAND"]
+    },
+    "TeleportAreas": ["TIVO", "LIVETV", "GUIDE", "NOWPLAYING"]
+}
