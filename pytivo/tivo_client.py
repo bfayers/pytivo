@@ -34,17 +34,27 @@ class TivoClient():
 
     def getStatus(self):
         channelNumberRegex = '[0-9]{4}'
-        with Telnet(self.ip, self.port) as tn:
-            status = tn.read_until(b"\r").decode("utf-8")
-            channel_num = re.search(channelNumberRegex, status).group(0)
-        return channel_num
+        try:
+            with Telnet(self.ip, self.port) as tn:
+                status = tn.read_until(b"\r").decode("utf-8")
+                channel_num = re.search(channelNumberRegex, status).group(0)
+            return channel_num
+        except EOFError:
+            return "Timed Out"
+        except ConnectionResetError:
+            return "Timed Out"
 
     def sendCommand(self, command):
-        with Telnet(self.ip, self.port) as tn:
-            tn.write(str.encode(command))
-            time.sleep(0.5)
-            response = tn.read_until(b"\r", timeout=2).decode("utf-8")
-        return response
+        try:
+            with Telnet(self.ip, self.port) as tn:
+                tn.write(str.encode(command))
+                time.sleep(0.5)
+                response = tn.read_until(b"\r", timeout=2).decode("utf-8")
+            return response
+        except EOFError:
+            return "Timed Out"
+        except ConnectionResetError:
+            return "Timed Out"
     
     def teleport(self, area):
         if area not in self.TeleportAreas:
@@ -57,7 +67,10 @@ class TivoClient():
                 #LiveTV Change is ready
                 return "SUCCESS_LIVETV_READY"
         else:
-            return "SUCCESS"
+            if response == "Timed Out":
+                return "Timed Out"
+            else:
+                return "SUCCESS"
 
     def setChannel(self, channelNumber):
         """Set the channel of the TiVo box"""
@@ -71,7 +84,10 @@ class TivoClient():
             failString = "FAILED_"+reasonForFail
             return failString
         else:
-            return "SUCCESS"
+            if response == "Timed Out":
+                return "Timed Out"
+            else:
+                return "SUCCESS"
 
     def sendIRCode(self, ircode):
         if ircode not in self.AllIRCodes:
