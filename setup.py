@@ -10,7 +10,7 @@ setup(
       packages = ['pytivo'],
       package_dir = {'pytivo': 'pytivo'},
       package_data = {'pytivo': ['keycodes.json']},
-      version = '0.0.1',
+      version = '0.0.2',
       description = 'Library To Control TiVo Devices',
       author = 'Ben Fayers',
       author_email = 'ben.fayers@gmail.com',
